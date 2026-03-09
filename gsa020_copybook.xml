@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<copybook filename="gsa020_copybook_stripped.cbl" dialect="Mainframe" cb2xml-format="2017">
+    <item level="01" name="FLD-REC" position="1" storage-length="2134" display-length="2148" display-position="1">
+        <item level="03" name="REC-CODE" picture="9" position="1" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="1"/>
+        <item level="03" name="FLD-CODE" position="2" storage-length="11" display-length="11" display-position="2" redefined="true">
+            <item level="05" name="DIST" position="2" storage-length="3" display-length="3" display-position="2">
+                <item level="07" name="DIST-NO" picture="99" position="2" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="2"/>
+                <item level="07" name="DIST-SFX" picture="X" position="4" storage-length="1" display-length="1" display-position="4"/>
+            </item>
+            <item level="05" name="PERM-FLD-ID" picture="9(8)" position="5" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="5" redefined="true"/>
+            <item level="05" name="FLD-ID" position="5" storage-length="8" display-length="8" display-position="5" redefines="PERM-FLD-ID">
+                <item level="07" name="FLD-NAM" picture="9(5)" position="5" storage-length="5" display-length="5" numeric="COBOL_NUMERIC" display-position="5"/>
+                <item level="07" name="FLD-RES" picture="999" position="10" storage-length="3" display-length="3" numeric="COBOL_NUMERIC" display-position="10"/>
+            </item>
+        </item>
+        <item level="03" name="NEXT-FLD" picture="X(11)" position="2" storage-length="11" display-length="11" display-position="2" redefines="FLD-CODE"/>
+        <item level="03" name="FILLER" picture="X(19)" position="13" storage-length="19" display-length="19" display-position="13"/>
+        <item level="03" name="FLD-NAME" picture="X(32)" position="32" storage-length="32" display-length="32" display-position="32"/>
+        <item level="03" name="COUNTY" picture="9(18)" position="64" storage-length="18" display-length="18" numeric="COBOL_NUMERIC" display-position="64" redefined="true"/>
+        <item level="03" name="COUNTIES" occurs="6" picture="999" position="64" storage-length="3" display-length="3" numeric="COBOL_NUMERIC" display-position="64" redefines="COUNTY"/>
+        <item level="03" name="DISC-DATE" picture="9(8)" position="82" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="82" redefined="true"/>
+        <item level="03" name="D-DATE" position="82" storage-length="8" display-length="8" display-position="82" redefines="DISC-DATE">
+            <item level="05" name="DISC-DATE-CCYY" picture="9(4)" position="82" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="82" redefined="true"/>
+            <item level="05" name="DISC-DATE-CCYY-REDF" position="82" storage-length="4" display-length="4" display-position="82" redefines="DISC-DATE-CCYY">
+                <item level="07" name="CENT" picture="99" position="82" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="82"/>
+                <item level="07" name="YEAR" picture="99" position="84" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="84"/>
+            </item>
+            <item level="05" name="MONTH" picture="99" position="86" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="86"/>
+            <item level="05" name="DA" picture="99" position="88" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="88"/>
+        </item>
+        <item level="03" name="TYPE-F" picture="X" position="90" storage-length="1" display-length="1" display-position="90"/>
+        <item level="03" name="CLASS" picture="X" position="91" storage-length="1" display-length="1" display-position="91"/>
+        <item level="03" name="ALLO-CD" picture="X" position="92" storage-length="1" display-length="1" display-position="92"/>
+        <item level="03" name="SPOCE" picture="9(8)" position="93" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="93" redefined="true"/>
+        <item level="03" name="SPACING" position="93" storage-length="8" display-length="8" display-position="93" redefines="SPOCE">
+            <item level="05" name="LINE-SP" picture="9(4)" position="93" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="93"/>
+            <item level="05" name="WELL-SP" picture="9(4)" position="97" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="97"/>
+        </item>
+        <item level="03" name="NET-ALLO" picture="9" position="101" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="101"/>
+        <item level="03" name="BAL-RULE" picture="9" position="102" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="102"/>
+        <item level="03" name="XMT-FACT" picture="9" position="103" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="103"/>
+        <item level="03" name="PRINT-AS-IS" picture="9" position="104" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="104"/>
+        <item level="03" name="COL-HEAD" picture="X" position="105" storage-length="1" display-length="1" display-position="105"/>
+        <item level="03" name="T-CODE" picture="X(12)" position="106" storage-length="12" display-length="12" display-position="106" redefined="true"/>
+        <item level="03" name="TEST-CODE" occurs="12" picture="X" position="106" storage-length="1" display-length="1" display-position="106" redefines="T-CODE"/>
+        <item level="03" name="CUMU-PROD" picture="9(12)" position="118" storage-length="12" display-length="12" numeric="COBOL_NUMERIC" display-position="118"/>
+        <item level="03" name="CUMU-COND-PROD" picture="9(10)" position="130" storage-length="10" display-length="10" numeric="COBOL_NUMERIC" display-position="130"/>
+        <item level="03" name="UNIT-ACRES" picture="9(4)" position="140" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="140"/>
+        <item level="03" name="UNIT-TOL" picture="999" position="144" storage-length="3" display-length="3" numeric="COBOL_NUMERIC" display-position="144"/>
+        <item level="03" name="ALLOCTION" picture="9(15)" position="147" storage-length="15" display-length="15" numeric="COBOL_NUMERIC" display-position="147"/>
+        <item level="03" name="CASING" picture="X(21)" position="162" storage-length="21" display-length="21" display-position="162"/>
+        <item level="03" name="DIAGONAL" position="183" storage-length="21" display-length="21" display-position="183">
+            <item level="05" name="DIAG-X" picture="X" position="183" storage-length="1" display-length="1" display-position="183"/>
+            <item level="05" name="DIAG-INFO" picture="X(20)" position="184" storage-length="20" display-length="20" display-position="184"/>
+        </item>
+        <item level="03" name="FG-DEPTH" picture="9(5)" position="204" storage-length="5" display-length="5" numeric="COBOL_NUMERIC" display-position="204"/>
+        <item level="03" name="WELLS" picture="9(4)" position="209" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="209"/>
+        <item level="03" name="ALLOW-CALC" picture="9(8)" position="213" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="213"/>
+        <item level="03" name="TOL" picture="999" position="221" storage-length="3" display-length="3" numeric="COBOL_NUMERIC" display-position="221"/>
+        <item level="03" name="ALLOW-DESIRED" picture="9(8)" position="224" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="224"/>
+        <item level="03" name="TOTAL-FORECAST" picture="9(8)" position="232" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="232"/>
+        <item level="03" name="OFFSHORE" picture="9" position="240" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="240"/>
+        <item level="03" name="FLD-TRANS" picture="9" position="241" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="241"/>
+        <item level="03" name="EX-BAL" picture="9" position="242" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="242"/>
+        <item level="03" name="EX-GOR" picture="9" position="243" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="243"/>
+        <item level="03" name="PENDING-SPEC-LMT-ALLOW" picture="9" position="244" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="244"/>
+        <item level="03" name="CUMU-PROD-PRIOR-70" picture="9(12)" position="245" storage-length="12" display-length="12" numeric="COBOL_NUMERIC" display-position="245"/>
+        <item level="03" name="CUMU-PROD-ERROR-SW" picture="X" position="257" storage-length="1" display-length="1" display-position="257"/>
+        <item level="03" name="FILLER" picture="X(45)" position="258" storage-length="45" display-length="45" display-position="258"/>
+        <item level="03" name="LINE-INFO" occurs="4" picture="X(66)" position="303" storage-length="66" display-length="66" display-position="303"/>
+        <item level="03" name="FILLER" picture="X(16)" position="567" storage-length="16" display-length="16" display-position="567"/>
+        <item level="03" name="FLD-MONTH" occurs="14" position="583" storage-length="83" display-length="84" display-position="583">
+            <item level="05" name="FLD-DATE" picture="9(6)" position="583" storage-length="6" display-length="6" numeric="COBOL_NUMERIC" display-position="583" redefined="true"/>
+            <item level="05" name="FLD-DATE-REDF" position="583" storage-length="6" display-length="6" display-position="583" redefines="FLD-DATE">
+                <item level="07" name="FLD-DATE-CCYY" picture="9(4)" position="583" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="583" redefined="true"/>
+                <item level="07" name="FLD-DATE-CCYY-REDF" position="583" storage-length="4" display-length="4" display-position="583" redefines="FLD-DATE-CCYY">
+                    <item level="09" name="F-CENT" picture="99" position="583" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="583"/>
+                    <item level="09" name="F-YEAR" picture="99" position="585" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="585"/>
+                </item>
+                <item level="07" name="F-MONTH" picture="99" position="587" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="587"/>
+            </item>
+            <item level="05" name="F-CHANGE" picture="9" position="589" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="589"/>
+            <item level="05" name="PER-WELL-CD" picture="99" position="590" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="590"/>
+            <item level="05" name="PER-WELL" picture="S9(7)" position="592" storage-length="7" display-length="7" numeric="COBOL_NUMERIC" display-position="592"/>
+            <item level="05" name="AC-CD" picture="99" position="599" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="599"/>
+            <item level="05" name="ACRG-FACT" picture="S9(8)" position="601" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="601"/>
+            <item level="05" name="OTHER-CD" picture="99" position="609" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="609"/>
+            <item level="05" name="OTHER-FACT" picture="S9(4)" position="611" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="611"/>
+            <item level="05" name="SW-SPLIT" picture="SV999" usage="computational-3" position="615" storage-length="2" display-length="3" scale="3" numeric="COBOL_NUMERIC" display-position="615"/>
+            <item level="05" name="SPLIT-DATE" picture="99" position="617" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="618"/>
+            <item level="05" name="SPECIAL-LMT-ALLOW" picture="9" position="619" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="620"/>
+            <item level="05" name="SW-EXC-206-CODE" picture="9" position="620" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="621"/>
+            <item level="05" name="SW-EXC-8609-LIMIT" picture="99" position="621" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="622"/>
+            <item level="05" name="FILLER" picture="X(43)" position="623" storage-length="43" display-length="43" display-position="624"/>
+        </item>
+        <item level="03" name="FILLER" picture="X(390)" position="1745" storage-length="390" display-length="390" display-position="1759"/>
+    </item>
+    <!--*-->
+    <item level="01" name="WELL-REC" position="1" storage-length="2120" display-length="2962" display-position="1">
+        <item level="03" name="W-REC-CODE" picture="9" position="1" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="1"/>
+        <item level="03" name="WELL-CODE" position="2" storage-length="23" display-length="23" display-position="2" redefined="true">
+            <item level="05" name="OP-CODE" position="2" storage-length="17" display-length="17" display-position="2">
+                <item level="07" name="W-FLD-CODE" position="2" storage-length="11" display-length="11" display-position="2">
+                    <item level="09" name="W-DISTR" position="2" storage-length="3" display-length="3" display-position="2">
+                        <item level="11" name="W-DIST-NO" picture="99" position="2" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="2"/>
+                        <item level="11" name="W-DIST-SFX" picture="X" position="4" storage-length="1" display-length="1" display-position="4"/>
+                    </item>
+                    <item level="09" name="W-PERM-FLD-ID" picture="9(8)" position="5" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="5" redefined="true"/>
+                    <item level="09" name="W-FLD-ID" position="5" storage-length="8" display-length="8" display-position="5" redefines="W-PERM-FLD-ID">
+                        <item level="11" name="W-FLD-NAM" picture="9(5)" position="5" storage-length="5" display-length="5" numeric="COBOL_NUMERIC" display-position="5"/>
+                        <item level="11" name="W-FLD-RES" picture="999" position="10" storage-length="3" display-length="3" numeric="COBOL_NUMERIC" display-position="10"/>
+                    </item>
+                </item>
+                <item level="07" name="OPER-ID" picture="9(6)" position="13" storage-length="6" display-length="6" numeric="COBOL_NUMERIC" display-position="13"/>
+            </item>
+            <item level="05" name="WELL-ID" picture="9(6)" position="19" storage-length="6" display-length="6" numeric="COBOL_NUMERIC" display-position="19"/>
+        </item>
+        <item level="03" name="NEXT-WELL" picture="X(23)" position="2" storage-length="23" display-length="23" display-position="2" redefines="WELL-CODE"/>
+        <item level="03" name="FILLER" picture="9" position="25" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="25"/>
+        <item level="03" name="WELL-NO" position="26" storage-length="6" display-length="6" display-position="26">
+            <item level="05" name="TRACT-NO" picture="X" position="26" storage-length="1" display-length="1" display-position="26"/>
+            <item level="05" name="WELL-NR" picture="XXX" position="27" storage-length="3" display-length="3" display-position="27"/>
+            <item level="05" name="WELL-SFX" position="30" storage-length="2" display-length="2" display-position="30">
+                <item level="07" name="SFX-1" picture="X" position="30" storage-length="1" display-length="1" display-position="30"/>
+                <item level="07" name="SFX-2" picture="X" position="31" storage-length="1" display-length="1" display-position="31"/>
+            </item>
+        </item>
+        <item level="03" name="LSE-NAME" picture="X(32)" position="32" storage-length="32" display-length="32" display-position="32"/>
+        <item level="03" name="CO-CODE" picture="999" position="64" storage-length="3" display-length="3" numeric="COBOL_NUMERIC" display-position="64"/>
+        <item level="03" name="W-TYPE" picture="X" position="67" storage-length="1" display-length="1" display-position="67"/>
+        <item level="03" name="GAS-GATHER-OLD" picture="X(5)" position="68" storage-length="5" display-length="5" display-position="68"/>
+        <item level="03" name="GAS-GATHER-NEW" position="73" storage-length="7" display-length="7" display-position="73">
+            <item level="05" name="G-GATH" picture="X(5)" position="73" storage-length="5" display-length="5" display-position="73"/>
+            <item level="05" name="FULL-S" picture="X" position="78" storage-length="1" display-length="1" display-position="78"/>
+            <item level="05" name="GAS-SPLIT" picture="X" position="79" storage-length="1" display-length="1" display-position="79"/>
+        </item>
+        <item level="03" name="GASGATH2I" picture="X(5)" position="80" storage-length="5" display-length="5" display-position="80"/>
+        <item level="03" name="GASGATH3I" picture="X(5)" position="85" storage-length="5" display-length="5" display-position="85"/>
+        <item level="03" name="LIQ-GATHER-OLD" picture="X(5)" position="90" storage-length="5" display-length="5" display-position="90"/>
+        <item level="03" name="LIQ-GATHER-NEW" position="95" storage-length="6" display-length="6" display-position="95">
+            <item level="05" name="L-GATH" picture="X(5)" position="95" storage-length="5" display-length="5" display-position="95"/>
+            <item level="05" name="LIQ-SPLIT" picture="X" position="100" storage-length="1" display-length="1" display-position="100"/>
+        </item>
+        <item level="03" name="WELL-INFO" picture="X(22)" position="101" storage-length="22" display-length="22" display-position="101"/>
+        <item level="03" name="BATCH-NR" picture="X" position="123" storage-length="1" display-length="1" display-position="123"/>
+        <item level="03" name="EXC-14B" picture="X" position="124" storage-length="1" display-length="1" display-position="124"/>
+        <item level="03" name="W14B-DATE" picture="9(8)" position="125" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="125" redefined="true"/>
+        <item level="03" name="W14B-DATE-REDF" position="125" storage-length="8" display-length="8" display-position="125" redefines="W14B-DATE">
+            <item level="05" name="W14B-CCYY" picture="9(4)" position="125" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="125" redefined="true"/>
+            <item level="05" name="W14B-CCYY-REDF" position="125" storage-length="4" display-length="4" display-position="125" redefines="W14B-CCYY">
+                <item level="07" name="W14B-CC" picture="99" position="125" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="125"/>
+                <item level="07" name="W14B-YR" picture="99" position="127" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="127"/>
+            </item>
+            <item level="05" name="W14B-MO" picture="99" position="129" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="129"/>
+            <item level="05" name="W14B-DAY" picture="99" position="131" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="131"/>
+        </item>
+        <item level="03" name="CMP-DATE" picture="9(8)" position="133" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="133" redefined="true"/>
+        <item level="03" name="CMP-DATE-REDF" position="133" storage-length="8" display-length="8" display-position="133" redefines="CMP-DATE">
+            <item level="05" name="CMP-DATE-CCYY" picture="9(4)" position="133" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="133" redefined="true"/>
+            <item level="05" name="CMP-DATE-CCYY-REDF" position="133" storage-length="4" display-length="4" display-position="133" redefines="CMP-DATE-CCYY">
+                <item level="07" name="CMP-DATE-CC" picture="99" position="133" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="133"/>
+                <item level="07" name="CMP-DATE-YY" picture="99" position="135" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="135"/>
+            </item>
+            <item level="05" name="CMP-DATE-MM" picture="99" position="137" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="137"/>
+            <item level="05" name="CMP-DATE-DD" picture="99" position="139" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="139"/>
+        </item>
+        <item level="03" name="W-DEPTH" picture="9(5)" position="141" storage-length="5" display-length="5" numeric="COBOL_NUMERIC" display-position="141"/>
+        <item level="03" name="UP-PERF" picture="9(5)" position="146" storage-length="5" display-length="5" numeric="COBOL_NUMERIC" display-position="146"/>
+        <item level="03" name="LO-PERF" picture="9(5)" position="151" storage-length="5" display-length="5" numeric="COBOL_NUMERIC" display-position="151"/>
+        <item level="03" name="COMMCD" picture="9" position="156" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="156"/>
+        <item level="03" name="COMM" picture="9(4)" position="157" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="157"/>
+        <item level="03" name="COMN-DTE" picture="9(8)" position="161" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="161" redefined="true"/>
+        <item level="03" name="COMN-DTE-REDF" position="161" storage-length="8" display-length="8" display-position="161" redefines="COMN-DTE">
+            <item level="05" name="COMN-CCYY" picture="9(4)" position="161" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="161" redefined="true"/>
+            <item level="05" name="COMN-CCYY-REDF" position="161" storage-length="4" display-length="4" display-position="161" redefines="COMN-CCYY">
+                <item level="07" name="COMN-CC" picture="99" position="161" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="161"/>
+                <item level="07" name="COMN-YR" picture="99" position="163" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="163"/>
+            </item>
+            <item level="05" name="COMN-M" picture="99" position="165" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="165"/>
+            <item level="05" name="COMN-DAY" picture="99" position="167" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="167"/>
+        </item>
+        <item level="03" name="DPT-CODE" picture="X" position="169" storage-length="1" display-length="1" display-position="169"/>
+        <item level="03" name="BHP-CODE" picture="X" position="170" storage-length="1" display-length="1" display-position="170"/>
+        <item level="03" name="SIP-CODE" picture="X" position="171" storage-length="1" display-length="1" display-position="171"/>
+        <item level="03" name="G-4-CODE" picture="X" position="172" storage-length="1" display-length="1" display-position="172"/>
+        <item level="03" name="WL-TSTX" picture="X" position="173" storage-length="1" display-length="1" display-position="173"/>
+        <item level="03" name="G-10-DUE" picture="99" position="174" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="174"/>
+        <item level="03" name="DTE-L-UTL" picture="9(8)" position="176" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="176" redefined="true"/>
+        <item level="03" name="DTE-L-UTL-REDF" position="176" storage-length="8" display-length="8" display-position="176" redefines="DTE-L-UTL">
+            <item level="05" name="DTE-L-UTL-CCYY" picture="9(4)" position="176" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="176" redefined="true"/>
+            <item level="05" name="DTE-L-UTL-CCYY-REDF" position="176" storage-length="4" display-length="4" display-position="176" redefines="DTE-L-UTL-CCYY">
+                <item level="07" name="DTE-L-UTL-CC" picture="99" position="176" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="176"/>
+                <item level="07" name="DTE-L-UTL-YY" picture="99" position="178" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="178"/>
+            </item>
+            <item level="05" name="DTE-L-UTL-MM" picture="99" position="180" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="180"/>
+            <item level="05" name="DTE-L-UTL-DD" picture="99" position="182" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="182"/>
+        </item>
+        <item level="03" name="WL-PA-CD" picture="9" position="184" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="184"/>
+        <item level="03" name="P-A-DATE" picture="9(8)" position="185" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="185" redefined="true"/>
+        <item level="03" name="P-A-DATE-REDF" position="185" storage-length="8" display-length="8" display-position="185" redefines="P-A-DATE">
+            <item level="05" name="P-A-DATE-CCYY" picture="9(4)" position="185" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="185" redefined="true"/>
+            <item level="05" name="P-A-DATE-CCYY-REDF" position="185" storage-length="4" display-length="4" display-position="185" redefines="P-A-DATE-CCYY">
+                <item level="07" name="P-A-DATE-CC" picture="99" position="185" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="185"/>
+                <item level="07" name="P-A-DATE-YY" picture="99" position="187" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="187"/>
+            </item>
+            <item level="05" name="P-A-DATE-MM" picture="99" position="189" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="189"/>
+            <item level="05" name="P-A-DATE-DD" picture="99" position="191" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="191"/>
+        </item>
+        <item level="03" name="SP-ALLOW" picture="9(7)" position="193" storage-length="7" display-length="7" numeric="COBOL_NUMERIC" display-position="193"/>
+        <item level="03" name="SP-AL-CODE" picture="X" position="200" storage-length="1" display-length="1" display-position="200"/>
+        <item level="03" name="LIQ-ALLOW" picture="9(5)" position="201" storage-length="5" display-length="5" numeric="COBOL_NUMERIC" display-position="201"/>
+        <item level="03" name="LIQ-ALLOW-CODE" picture="9" position="206" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="206"/>
+        <item level="03" name="FORM-LACKING" picture="9" position="207" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="207"/>
+        <item level="03" name="OFF-SHORE" picture="9" position="208" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="208"/>
+        <item level="03" name="WL-TOP-PER" picture="999V99" position="209" storage-length="5" display-length="5" scale="2" numeric="COBOL_NUMERIC" display-position="209"/>
+        <item level="03" name="ROYALTY-CODE" picture="9" position="214" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="214"/>
+        <item level="03" name="PRIOR-RINU" picture="S9(9)" usage="computational-3" position="215" storage-length="5" display-length="9" numeric="COBOL_NUMERIC" display-position="215"/>
+        <item level="03" name="PRIOR-RINU-DATE" picture="9(6)" position="220" storage-length="6" display-length="6" numeric="COBOL_NUMERIC" display-position="224" redefined="true"/>
+        <item level="03" name="PRIOR-RINU-DATE-REDF" position="220" storage-length="6" display-length="6" display-position="224" redefines="PRIOR-RINU-DATE">
+            <item level="05" name="PRIOR-RINU-CCYY" picture="9(4)" position="220" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="224" redefined="true"/>
+            <item level="05" name="PRIOR-RINU-CCYY-REDF" position="220" storage-length="4" display-length="4" display-position="224" redefines="PRIOR-RINU-CCYY">
+                <item level="07" name="PRIOR-RINU-CENT" picture="9(2)" position="220" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="224"/>
+                <item level="07" name="PRIOR-RINU-YEAR" picture="9(2)" position="222" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="226"/>
+            </item>
+            <item level="05" name="PRIOR-RINU-MONTH" picture="9(2)" position="224" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="228"/>
+        </item>
+        <item level="03" name="RINU" picture="S9(9)" usage="computational-3" position="226" storage-length="5" display-length="9" numeric="COBOL_NUMERIC" display-position="230"/>
+        <item level="03" name="RINU-DATE" picture="9(6)" position="231" storage-length="6" display-length="6" numeric="COBOL_NUMERIC" display-position="239" redefined="true"/>
+        <item level="03" name="RINU-DATE-REDF" position="231" storage-length="6" display-length="6" display-position="239" redefines="RINU-DATE">
+            <item level="05" name="RINU-CCYY" picture="9(4)" position="231" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="239" redefined="true"/>
+            <item level="05" name="RINU-CCYY-REDF" position="231" storage-length="4" display-length="4" display-position="239" redefines="RINU-CCYY">
+                <item level="07" name="RINU-CENT" picture="9(2)" position="231" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="239"/>
+                <item level="07" name="RINU-YEAR" picture="9(2)" position="233" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="241"/>
+            </item>
+            <item level="05" name="RINU-MONTH" picture="9(2)" position="235" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="243"/>
+        </item>
+        <item level="03" name="EXC-14B2-TYPE" picture="X" position="237" storage-length="1" display-length="1" display-position="245"/>
+        <item level="03" name="FILLER" picture="X" position="238" storage-length="1" display-length="1" display-position="246"/>
+        <item level="03" name="G-1-DATE" picture="9(8)" position="239" storage-length="8" display-length="8" numeric="COBOL_NUMERIC" display-position="247" redefined="true"/>
+        <item level="03" name="G-1-DATE-REDF" position="239" storage-length="8" display-length="8" display-position="247" redefines="G-1-DATE">
+            <item level="05" name="G-1-DATE-CCYY" picture="9(4)" position="239" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="247" redefined="true"/>
+            <item level="05" name="G-1-DATE-CCYY-REDF" position="239" storage-length="4" display-length="4" display-position="247" redefines="G-1-DATE-CCYY">
+                <item level="07" name="G-1-DATE-CENT" picture="99" position="239" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="247"/>
+                <item level="07" name="G-1-DATE-YEAR" picture="99" position="241" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="249"/>
+            </item>
+            <item level="05" name="G-1-DATE-MONTH" picture="99" position="243" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="251"/>
+            <item level="05" name="G-1-DATE-DAY" picture="99" position="245" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="253"/>
+        </item>
+        <item level="03" name="OPEN-FLO" picture="S9(7)" usage="computational-3" position="247" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="255"/>
+        <item level="03" name="SLOPE" picture="S9V9999" usage="computational-3" position="251" storage-length="3" display-length="5" scale="4" numeric="COBOL_NUMERIC" display-position="262" redefined="true"/>
+        <item level="03" name="SLOPED" picture="S9(5)" usage="computational-3" position="251" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="262" redefines="SLOPE"/>
+        <item level="03" name="RATIO" picture="S9(5)" usage="computational-3" position="254" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="267"/>
+        <item level="03" name="G-GRAV" picture="SV999" usage="computational-3" position="257" storage-length="2" display-length="3" scale="3" numeric="COBOL_NUMERIC" display-position="272" redefined="true"/>
+        <item level="03" name="G-GRAVED" picture="S999" usage="computational-3" position="257" storage-length="2" display-length="3" numeric="COBOL_NUMERIC" display-position="272" redefines="G-GRAV"/>
+        <item level="03" name="O-GRAV" picture="S99V9" usage="computational-3" position="259" storage-length="2" display-length="3" scale="1" numeric="COBOL_NUMERIC" display-position="275" redefined="true"/>
+        <item level="03" name="O-GRAVED" picture="S999" usage="computational-3" position="259" storage-length="2" display-length="3" numeric="COBOL_NUMERIC" display-position="275" redefines="O-GRAV"/>
+        <item level="03" name="BGS" picture="S9(9)" usage="computational-3" position="261" storage-length="5" display-length="9" numeric="COBOL_NUMERIC" display-position="278"/>
+        <item level="03" name="BLS" picture="S9(9)" usage="computational-3" position="266" storage-length="5" display-length="9" numeric="COBOL_NUMERIC" display-position="287"/>
+        <item level="03" name="PRIOR-6" picture="S9(9)" usage="computational-3" position="271" storage-length="5" display-length="9" numeric="COBOL_NUMERIC" display-position="296"/>
+        <item level="03" name="PCU" picture="S9(7)" usage="computational-3" position="276" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="305"/>
+        <item level="03" name="CURR-BAL" picture="S9(9)" usage="computational-3" position="280" storage-length="5" display-length="9" numeric="COBOL_NUMERIC" display-position="312"/>
+        <item level="03" name="CANCEL-G" picture="S9(7)" usage="computational-3" position="285" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="321"/>
+        <item level="03" name="G-STATUS" picture="S9(9)" usage="computational-3" position="289" storage-length="5" display-length="9" numeric="COBOL_NUMERIC" display-position="328"/>
+        <item level="03" name="L-STATUS" picture="S9(7)" usage="computational-3" position="294" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="337"/>
+        <item level="03" name="LMT-ALLOW" picture="S9(7)" usage="computational-3" position="298" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="344"/>
+        <item level="03" name="SI-AMT" picture="S9(9)" usage="computational-3" position="302" storage-length="5" display-length="9" numeric="COBOL_NUMERIC" display-position="351"/>
+        <item level="03" name="SI-CODE" picture="9" position="307" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="360"/>
+        <item level="03" name="EXCEPTION-TO-PROD-LIMIT-CODE" picture="9" position="308" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="361"/>
+        <item level="03" name="EXCEPTION-TO-PROD-LIMIT" picture="S9(7)" usage="computational-3" position="309" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="362"/>
+        <item level="03" name="EXC-14B2-APP-NO" picture="9(6)" usage="computational-3" position="313" storage-length="4" display-length="6" numeric="COBOL_NUMERIC" display-position="369"/>
+        <item level="03" name="MONTHLY-WELL" occurs="14" position="317" storage-length="116" display-length="172" display-position="375">
+            <item level="05" name="W-DATE" picture="9(6)" position="317" storage-length="6" display-length="6" numeric="COBOL_NUMERIC" display-position="375" redefined="true"/>
+            <item level="05" name="W-DATE-REDF" position="317" storage-length="6" display-length="6" display-position="375" redefines="W-DATE">
+                <item level="07" name="W-DATE-CCYY" picture="9(4)" position="317" storage-length="4" display-length="4" numeric="COBOL_NUMERIC" display-position="375" redefined="true"/>
+                <item level="07" name="W-DATE-CCYY-REDF" position="317" storage-length="4" display-length="4" display-position="375" redefines="W-DATE-CCYY">
+                    <item level="09" name="W-CC" picture="99" position="317" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="375"/>
+                    <item level="09" name="W-YR" picture="99" position="319" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="377"/>
+                </item>
+                <item level="07" name="W-MO" picture="99" position="321" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="379"/>
+            </item>
+            <item level="05" name="NAME-CHANGE-CODE" picture="9" position="323" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="381"/>
+            <item level="05" name="FORM-REC-CODE" picture="9" position="324" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="382"/>
+            <item level="05" name="BAL-CODE" picture="9" position="325" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="383"/>
+            <item level="05" name="EXC-206-CODE" picture="9" position="326" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="384"/>
+            <item level="05" name="RED-RATE-CODE" picture="9" position="327" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="385"/>
+            <item level="05" name="TSF-CODE" picture="9" position="328" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="386"/>
+            <item level="05" name="NO-SUPP" picture="9" position="329" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="387"/>
+            <item level="05" name="LACK" picture="9" position="330" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="388"/>
+            <item level="05" name="OLD-OP-CODE" picture="9(6)" position="331" storage-length="6" display-length="6" numeric="COBOL_NUMERIC" display-position="389"/>
+            <item level="05" name="W-TYPE-MO" picture="X" position="337" storage-length="1" display-length="1" display-position="395"/>
+            <item level="05" name="AL-CODE" picture="X" position="338" storage-length="1" display-length="1" display-position="396"/>
+            <item level="05" name="WRD-ALLOW" picture="X(8)" position="339" storage-length="8" display-length="8" display-position="397"/>
+            <item level="05" name="ON-SHUT-LST" picture="X" position="347" storage-length="1" display-length="1" display-position="405"/>
+            <item level="05" name="NO-LMT-ALLOW-SW" picture="9" position="348" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="406"/>
+            <item level="05" name="ALLOW" picture="S9(7)" usage="computational-3" position="349" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="407"/>
+            <item level="05" name="GAS-PRD" picture="S9(7)" usage="computational-3" position="353" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="414"/>
+            <item level="05" name="INJ-CREDIT" picture="S9(7)" usage="computational-3" position="357" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="421"/>
+            <item level="05" name="INJ-CODE" picture="9" position="361" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="428"/>
+            <item level="05" name="W-LIQ-ALLOW" picture="S9(5)" usage="computational-3" position="362" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="429"/>
+            <item level="05" name="LSE-LIQ" picture="S9(5)" usage="computational-3" position="365" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="434"/>
+            <item level="05" name="PLT-LIQ" picture="S9(5)" usage="computational-3" position="368" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="439"/>
+            <item level="05" name="LIQ-DISI" picture="S9(5)" usage="computational-3" position="371" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="444"/>
+            <item level="05" name="LIQ-DISCDI" picture="9" position="374" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="449"/>
+            <item level="05" name="OTH-DISI" picture="S9(5)" usage="computational-3" position="375" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="450"/>
+            <item level="05" name="OTH-DISCDI" picture="9" position="378" storage-length="1" display-length="1" numeric="COBOL_NUMERIC" display-position="455"/>
+            <item level="05" name="MO-G4" picture="S9(7)" usage="computational-3" position="379" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="456"/>
+            <item level="05" name="MO-G2" picture="S9(5)" usage="computational-3" position="383" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="463"/>
+            <item level="05" name="MO-BHP" picture="S9(5)" usage="computational-3" position="386" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="468"/>
+            <item level="05" name="OTHER-PRESI" picture="S9(5)" usage="computational-3" position="389" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="473"/>
+            <item level="05" name="MO-ACRE" picture="S9(4)V9(3)" usage="computational-3" position="392" storage-length="4" display-length="7" scale="3" numeric="COBOL_NUMERIC" display-position="478"/>
+            <item level="05" name="MO-ACRE-FT" picture="S9(6)V9" usage="computational-3" position="396" storage-length="4" display-length="7" scale="1" numeric="COBOL_NUMERIC" display-position="485"/>
+            <item level="05" name="TRAN-ALLOW" picture="S9(7)" usage="computational-3" position="400" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="492"/>
+            <item level="05" name="OPEN-COND" picture="S9(5)" usage="computational-3" position="404" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="499"/>
+            <item level="05" name="CLOSE-COND" picture="S9(5)" usage="computational-3" position="407" storage-length="3" display-length="5" numeric="COBOL_NUMERIC" display-position="504"/>
+            <item level="05" name="MO-LEASE-PERCENT-RESERVE" picture="S9(3)V9(4)" usage="computational-3" position="410" storage-length="4" display-length="7" scale="4" numeric="COBOL_NUMERIC" display-position="509"/>
+            <item level="05" name="PER-CENT-RED-RATE" picture="S9(7)" usage="computational-3" position="414" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="516"/>
+            <item level="05" name="MO-TOP-SCH-ALLOW" picture="S9(7)" usage="computational-3" position="418" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="523"/>
+            <item level="05" name="MO-LMT-ALLOW" picture="S9(7)" usage="computational-3" position="422" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="530"/>
+            <item level="05" name="MO-HIGHEST-DAILY-PROD-LMT" picture="S9(7)" usage="computational-3" position="426" storage-length="4" display-length="7" numeric="COBOL_NUMERIC" display-position="537"/>
+            <item level="05" name="EXC-8609-LIMIT" picture="9(2)" position="430" storage-length="2" display-length="2" numeric="COBOL_NUMERIC" display-position="544"/>
+            <item level="05" name="SWR38-ACRES-CODE" picture="X" position="432" storage-length="1" display-length="1" display-position="546"/>
+        </item>
+        <item level="03" name="FILLER" picture="X(180)" position="1941" storage-length="180" display-length="180" display-position="2783"/>
+    </item>
+</copybook>
