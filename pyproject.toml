@@ -1,0 +1,28 @@
+[project]
+name = "wellx3"
+version = "0.1.0"
+description = "East Texas oil well data analysis pipeline"
+requires-python = ">=3.12"
+
+dependencies = [
+    "kaggle",
+    "jupyterlab",
+    "pandas",
+    "numpy",
+    "geopandas",
+    "scikit-learn",
+    "xgboost",
+    "matplotlib",
+    "lxml",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.setuptools]
+py-modules = ["build", "gsa020_to_csv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

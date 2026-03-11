@@ -18,6 +18,7 @@ import argparse
 import csv
 import gzip
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -61,20 +62,20 @@ def preprocess_copybook(src: Path) -> str:
 
     kept = lines[start:]
 
-    # Apply COMP-3 fixes: replace "PIC S9(N)." with the packed version for affected names
+    # Apply COMP-3 fixes: match on the field-name token (second word on the line),
+    # because the level number always comes first ("05  PER-WELL  PIC ...").
+    _item_re = re.compile(
+        r'^(?P<indent>\s*)(?P<level>\d+)\s+(?P<name>[\w-]+)(?P<rest>\s+PIC\s+.*)$',
+        re.IGNORECASE,
+    )
     result = []
     for line in kept:
-        for field_name, new_pic in COMP3_FIXES.items():
-            # Match lines that contain the field name followed by a PIC clause
-            # We look for "field_name   PIC ..."  and replace the PIC clause
-            stripped = line.lstrip()
-            # Be conservative: only match the exact field name as a word
-            if stripped.startswith(f"{field_name} ") or stripped.startswith(f"{field_name}\t"):
-                # Replace whatever PIC clause is there with the fixed one
-                indent = line[: len(line) - len(stripped)]
-                level_and_name = stripped.split("PIC")[0].rstrip()
-                line = f"{indent}{level_and_name}    {new_pic}\n"
-                break
+        m = _item_re.match(line.rstrip('\n'))
+        if m and m.group("name") in COMP3_FIXES:
+            line = (
+                f"{m.group('indent')}{m.group('level')}  {m.group('name')}"
+                f"    {COMP3_FIXES[m.group('name')]}\n"
+            )
         result.append(line)
 
     return "".join(result)
