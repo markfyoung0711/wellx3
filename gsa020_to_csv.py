@@ -87,7 +87,8 @@ def preprocess_copybook(src: Path) -> str:
 
 def run_cb2xml(copybook_path: Path, output_xml: Path):
     """Invoke cb2xml to convert the (pre-processed) copybook to XML."""
-    jar = SCRIPT_DIR / "cb2xml" / "lib" / "cb2xml.jar"
+    import os
+    jar = Path(os.environ.get("CB2XML_JAR", SCRIPT_DIR / "cb2xml" / "lib" / "cb2xml.jar"))
     if not jar.exists():
         raise FileNotFoundError(f"cb2xml.jar not found: {jar}")
     cmd = [

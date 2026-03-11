@@ -14,6 +14,8 @@ dependencies = [
     "xgboost",
     "matplotlib",
     "lxml",
+    "selenium",
+    "pyyaml",
 ]
 
 [project.optional-dependencies]
@@ -23,6 +25,12 @@ dev = [
 
 [tool.setuptools]
 py-modules = ["build", "gsa020_to_csv"]
+packages = ["rrc"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.5",
+]

@@ -1,0 +1,38 @@
+FROM eclipse-temurin:17-jre
+
+WORKDIR /app
+
+# Install Python 3.12, pip, curl, unzip
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3.12 \
+    python3.12-dev \
+    python3-pip \
+    curl \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download and install cb2xml from SourceForge
+RUN curl -L --fail --show-error \
+    "https://sourceforge.net/projects/cb2xml/files/cb2xml/1.01.6/cb2xml_Version_1.01.6.zip/download" \
+    -o /tmp/cb2xml.zip \
+    && unzip -q /tmp/cb2xml.zip -d /opt/cb2xml \
+    && rm /tmp/cb2xml.zip
+
+# Install Python dependencies
+COPY pyproject.toml .
+RUN pip3 install --no-cache-dir --break-system-packages \
+    pandas numpy geopandas scikit-learn xgboost matplotlib lxml
+
+# Copy pipeline source
+COPY build.py gsa020_to_csv.py ./
+COPY tx_rrc/ ./tx_rrc/
+
+# Input data is mounted at runtime:
+#   docker run -v /path/to/gsf001l.ebc.gz:/data/gsf001l.ebc.gz \
+#              -v /path/to/output:/data/output \
+#              wellx3-build --ebcdic /data/gsf001l.ebc.gz --output /data/output/gsa020
+
+ENV CB2XML_JAR=/opt/cb2xml/lib/cb2xml.jar
+
+ENTRYPOINT ["python3", "build.py"]
+CMD ["--help"]

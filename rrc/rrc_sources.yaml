@@ -1,0 +1,15 @@
+rrc_files:
+  gas_ledger:
+    description: "Texas RRC Gas Ledger (EBCDIC) — statewide monthly production"
+    download:
+      method: scrape
+      source_url: https://www.rrc.texas.gov/resource-center/research/data-sets-available-for-download/
+      navigate:
+        - action: click_link
+          row_text: "Gas Ledger Dist .*"   # regex, matches first occurrence in table row
+          link_text: "EBCDIC Format"
+      file_selector:
+        pattern: ".*\\.ebc\\.gz"
+        record_modified_date: true
+      update_frequency: monthly
+      update_day_approx: 27

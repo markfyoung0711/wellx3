@@ -1,0 +1,6 @@
+gsa020_*.csv
+*.egg-info/
+cb2xml_*.zip
+cb2xml/
+__pycache__/
+gsf*.gz
